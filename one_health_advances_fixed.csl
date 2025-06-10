@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
+  <info>
+    <title-short>One Health Adv</title-short>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <updated>2025-06-09T00:00:00+00:00</updated>
+    <issn>2950-2434</issn>
+
+    <title>One Health Advances</title>
+    <id>http://www.zotero.org/styles/one-health-advances</id>
+    <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
+    <author>
+      <name>Custom CSL Generator</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <updated>2025-06-09T12:00:00+00:00</updated>
+    <summary>CSL style for One Health Advances journal, aligned with its official guide.</summary>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with="." name-as-sort-order="first" delimiter=", "/>
+      <et-al term="et al."/>
+    </names>
+  </macro>
+
+  <macro name="editor">
+    <names variable="editor">
+      <name initialize-with="." name-as-sort-order="first" delimiter=", "/>
+      <label form="short" prefix=", " text-case="lowercase"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" suffix="."/>
+  </macro>
+
+  <macro name="container-title">
+    <text variable="container-title" form="short" font-style="italic"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="volume-issue">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="issue" prefix="Suppl "/>
+    </group>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="publisher">
+    <group delimiter=": ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+
+  <macro name="access">
+    <group delimiter=". ">
+      <text variable="URL"/>
+      <group>
+        <text term="accessed" text-case="capitalize-first" suffix=" "/>
+        <date variable="accessed">
+          <date-part name="day" suffix=" "/>
+          <date-part name="month" suffix=" "/>
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="doi:"/>
+  </macro>
+
+  <citation>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout hanging-indent="true" delimiter=" ">
+      <text macro="author" suffix=". "/>
+      <text macro="title"/>
+      <choose>
+        <if type="chapter paper-conference">
+          <text term="in" text-case="capitalize-first" suffix=": "/>
+          <text variable="container-title"/>
+          <text macro="editor" prefix=". " suffix="."/>
+          <text macro="publisher" prefix=" " suffix=";"/>
+          <text macro="issued" suffix="."/>
+          <group prefix=" p. " suffix=".">
+            <text variable="page"/>
+          </group>
+        </if>
+        <else-if type="article-journal">
+          <text macro="container-title" prefix=" "/>
+          <group suffix=".">
+            <text macro="issued" prefix=" " suffix=";"/>
+            <text macro="volume-issue" suffix=":"/>
+            <text macro="pages"/>
+          </group>
+        </else-if>
+        <else-if type="webpage post webpage webpage-multivolume">
+          <text macro="container-title" prefix="In: "/>
+          <text macro="publisher" suffix="."/>
+          <text macro="issued" suffix="."/>
+          <text macro="access" prefix=" " suffix="."/>
+        </else-if>
+        <else-if type="book">
+          <text macro="publisher" suffix=";"/>
+          <text macro="issued" suffix="."/>
+        </else-if>
+        <else-if type="article-journal" match="any">
+          <text macro="doi" suffix="."/>
+        </else-if>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
