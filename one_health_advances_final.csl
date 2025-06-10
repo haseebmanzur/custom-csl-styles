@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text">
+  <info>
+    <title>One Health Advances</title>
+    <title-short>One Health Adv</title-short>
+    <id>http://www.zotero.org/styles/one-health-advances</id>
+    <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
+    <author>
+      <name>Custom CSL Bot</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <issn>2950-2434</issn>
+    <updated>2025-06-09T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">
+      This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License
+    </rights>
+    <summary>One Health Advances custom CSL based on Vancouver, validated for Mendeley compatibility.</summary>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name and="text" delimiter=", " initialize-with="." name-as-sort-order="first"/>
+      <et-al term="et al."/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" suffix="."/>
+  </macro>
+
+  <macro name="container-title">
+    <text variable="container-title" form="short" font-style="italic"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="volume-issue">
+    <group delimiter=";">
+      <text variable="volume"/>
+      <text variable="issue" prefix="(" suffix=")"/>
+    </group>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page"/>
+  </macro>
+
+  <macro name="doi">
+    <text variable="DOI" prefix="doi:"/>
+  </macro>
+
+  <macro name="url">
+    <text variable="URL"/>
+  </macro>
+
+  <citation>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout hanging-indent="true" delimiter=" ">
+      <text macro="author" suffix=". "/>
+      <text macro="title"/>
+      <text macro="container-title" prefix=" "/>
+      <text macro="issued" prefix=" " suffix=";"/>
+      <text macro="volume-issue" suffix=":"/>
+      <text macro="pages" suffix="."/>
+      <text macro="doi" prefix=" " suffix="."/>
+      <text macro="url" prefix=" " suffix="."/>
+    </layout>
+  </bibliography>
+</style>
